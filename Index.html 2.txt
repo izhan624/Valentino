@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Proposal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.transparenttextures.com/patterns/heart.png'); /* Heart background */
+            background-size: 50px 50px; /* Adjust size of hearts */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background-color: #f8f8f8;
+        }
+        .page {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .page.active {
+            display: block;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            background-color: #ff69b4;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+        .gif {
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div id="page1" class="page active">
+    <h2>Hey cutie!</h2>
+    <button onclick="nextPage(2)">Next</button>
+</div>
+
+<div id="page2" class="page">
+    <h2>I really enjoy talking to you. You make me really happy, and you deserve the best!</h2>
+    <button onclick="nextPage(3)">Next</button>
+</div>
+
+<div id="page3" class="page">
+    <h2>Andreea, would you like to be my Valentine?</h2>
+    <button onclick="showGif(true)">Yes</button>
+    <button onclick="showGif(false)">No</button>
+    <div id="gif" class="gif">
+        <img src="https://tenor.com/nJ5BEOKq8wc.gif" alt="Gif">
+    </div>
+</div>
+
+<script>
+    function nextPage(pageNumber) {
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.remove('active'));
+        document.getElementById('page' + pageNumber).classList.add('active');
+    }
+
+    function showGif(isYes) {
+        const gif = document.getElementById('gif');
+        if (isYes) {
+            gif.style.display = 'block';
+        } else {
+            alert("Maybe next time!");
+        }
+    }
+</script>
+
+</body>
+</html>
